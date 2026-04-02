@@ -1,10 +1,19 @@
 
 
-
-Question 2)
-SELECT a.nom, a.prenom, e.nom
+question1)
+SELECT a.nom, e.nom, n.valeur
 FROM `participation` p 
 INNER JOIN `athlete` a ON a.id_athlete= p.id_athlete
 INNER JOIN `epreuve` e ON e.id_epreuve= p.id_epreuve
-GROUP BY p.id_athlete
-HAVING COUNT(p.id_athlete>=2)
+INNER JOIN `run` r ON e.id_epreuve= r.id_epreuve
+INNER JOIN `note` n ON r.id_run= n.id_run
+
+question2)
+SELECT a.nom, a.prenom
+FROM `participation` p 
+INNER JOIN `athlete` a ON a.id_athlete= p.id_athlete
+INNER JOIN `epreuve` e ON e.id_epreuve= p.id_epreuve
+INNER JOIN `run` r ON e.id_epreuve= r.id_epreuve
+INNER JOIN `note` n ON r.id_run= n.id_run
+GROUP BY a.id_athlete
+HAVING a.note NOT IN n.
