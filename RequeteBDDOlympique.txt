@@ -16,4 +16,7 @@ INNER JOIN `epreuve` e ON e.id_epreuve= p.id_epreuve
 INNER JOIN `run` r ON e.id_epreuve= r.id_epreuve
 INNER JOIN `note` n ON r.id_run= n.id_run
 GROUP BY a.id_athlete
-HAVING a.note NOT IN n.
+HAVING COUNT(a.id_athlete)>=2
+
+Question BONUS
+il n'y as pas de liens entres les notes et les participants, il n'y a pas de liens entre les runes et les participants,
