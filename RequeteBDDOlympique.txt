@@ -1,0 +1,10 @@
+
+
+
+Question 2)
+SELECT a.nom, a.prenom, e.nom
+FROM `participation` p 
+INNER JOIN `athlete` a ON a.id_athlete= p.id_athlete
+INNER JOIN `epreuve` e ON e.id_epreuve= p.id_epreuve
+GROUP BY p.id_athlete
+HAVING COUNT(p.id_athlete>=2)
